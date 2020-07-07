@@ -41,3 +41,4 @@ Then select and open ```Lab02UnitTestingAndDocumentation.sln```
 
 ### Change Log
 - 1.0: Initial Repo Setup
+- 1.1: Solution Outline
