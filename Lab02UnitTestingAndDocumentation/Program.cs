@@ -2,7 +2,7 @@
 
 namespace Lab02UnitTestingAndDocumentation
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
