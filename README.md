@@ -15,7 +15,7 @@ This is a C# console application that will allow the user to check their bank ba
 Clone this repository to your local machine.
 
 ```
-$ git clone https://github.com/TrevorStubbs/Lab01ExceptionHandlingAndDebugging.git
+$ git clone https://github.com/TrevorStubbs/Lab02-UnitTestingAndDocumentation.git
 ```
 
 ### To run the program from Visual Studio:
