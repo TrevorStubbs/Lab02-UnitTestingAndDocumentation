@@ -4,7 +4,7 @@ namespace Lab02UnitTestingAndDocumentation
 {
     public class Program
     {
-        static public decimal Balance = 0;
+        static public decimal Balance = 100;
 
         static void Main(string[] args)
         {
@@ -38,14 +38,16 @@ namespace Lab02UnitTestingAndDocumentation
                             break;
                         case "2":
                             Console.WriteLine("Please enter how much you want to withdraw.");
-                            int withdrawAmount = Convert.ToInt32(Console.ReadLine());
-                            //Withdraw(withdrawAmount);
+                            decimal withdrawAmount = Convert.ToDecimal(Console.ReadLine());
+                            Balance = Withdraw(withdrawAmount, Balance);
+                            Console.WriteLine($"Your balance now is: ${String.Format("{0:0.00}", ViewBalance())}");
                             Console.WriteLine();
                             break;
                         case "3":
                             Console.WriteLine("Please enter how much you want to deposit.");
-                            int depositAmount = Convert.ToInt32(Console.ReadLine());
-                            //Deposit(depositAmount);
+                            decimal depositAmount = Convert.ToDecimal(Console.ReadLine());
+                            //Balance = Deposit(depositAmount, Balance);
+                            Console.WriteLine($"Your balance now is: ${String.Format("{0:0.00}", ViewBalance())}");
                             Console.WriteLine();
                             break;
                         case "4":
@@ -72,6 +74,26 @@ namespace Lab02UnitTestingAndDocumentation
             return Balance;
         }
 
-
+        public static decimal Withdraw(decimal withdrawAmount, decimal inputBalance)
+        {
+            if(withdrawAmount < 0)
+            {
+                Console.WriteLine("I am sorry you can not withdraw a negative amount");
+                return inputBalance;
+            }
+            else
+            {
+                decimal newBalance = inputBalance - withdrawAmount;
+                if(newBalance < 0)
+                {
+                    Console.WriteLine("I am sorry you can not perform an overdraft.");
+                    return inputBalance;
+                }
+                else
+                {
+                    return newBalance;                    
+                }    
+            }    
+        }
     }
 }

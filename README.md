@@ -43,3 +43,4 @@ Then select and open ```Lab02UnitTestingAndDocumentation.sln```
 - 1.0: Initial Repo Setup
 - 1.1: Solution Outline
 - 1.2: UserInterface Method Outline Complete
+- 1.3: ViewBalance Method Complete
