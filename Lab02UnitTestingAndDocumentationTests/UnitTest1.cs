@@ -18,7 +18,7 @@ namespace Lab02UnitTestingAndDocumentationTests
         }
 
         [Fact]
-        public void TestWithdrawMethod1()
+        public void TestWithdrawMethodToWithdrawTheCorrectAmount()
         {
             // Arrange
             decimal testBalance = 50;
@@ -26,10 +26,10 @@ namespace Lab02UnitTestingAndDocumentationTests
             // Act
             decimal outputFromMethod = Withdraw(testWithdrawAmount, testBalance);
             // Assert
-            Assert.Equal(30, outputFromMethod);
+            Assert.Equal((testBalance - testWithdrawAmount), outputFromMethod);
         }
         [Fact]
-        public void TestWithdrawMethod2()
+        public void TestWithdrawMethodToMakeSureTheMethodDoesntAdd()
         {
             // Arrange
             decimal testBalance = 1000;
@@ -37,11 +37,11 @@ namespace Lab02UnitTestingAndDocumentationTests
             // Act
             decimal outputFromMethod = Withdraw(testWithdrawAmount, testBalance);
             // Assert
-            Assert.NotEqual(20, outputFromMethod);
+            Assert.NotEqual((testBalance + testWithdrawAmount), outputFromMethod);
         }
 
         [Fact]
-        public void TestWithdrawMethod3()
+        public void TestWithdrawMethodToPreventTheBalanceFromGoingBelowZero()
         {
             // Arrange
             decimal testBalance = 10;
@@ -50,6 +50,42 @@ namespace Lab02UnitTestingAndDocumentationTests
             decimal outputFromMethod = Withdraw(testWithdrawAmount, testBalance);
             // Assert
             Assert.NotEqual(20, outputFromMethod);
+        }
+
+        [Fact]
+        public void TestDepositMethodForProperFunctionality()
+        {
+            // Arrange
+            decimal testBalance = 100;
+            decimal testDepositAmount = 20;
+            // Act
+            decimal outputFromMethod = Deposit(testDepositAmount, testBalance);
+            // Assert
+            Assert.Equal((testDepositAmount + testBalance), outputFromMethod);
+        }
+
+        [Fact]
+        public void TestDepositMethodDoesntSubtractValues()
+        {
+            // Arrange
+            decimal testBalance = 1000;
+            decimal testDepositAmount = 20;
+            // Act
+            decimal outputFromMethod = Deposit(testDepositAmount, testBalance);
+            // Assert
+            Assert.NotEqual((testDepositAmount - testBalance), outputFromMethod);
+        }
+
+        [Fact]
+        public void TestDepositMethodDoesntAcceptNegativeNumbers()
+        {
+            // Arrange
+            decimal testBalance = 10;
+            decimal testDepositAmount = -20;
+            // Act
+            decimal outputFromMethod = Deposit(testDepositAmount, testBalance);
+            // Assert
+            Assert.NotEqual((testDepositAmount + testBalance), outputFromMethod);
         }
 
     }
