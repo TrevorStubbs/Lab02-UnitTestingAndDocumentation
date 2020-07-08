@@ -6,11 +6,22 @@ namespace Lab02UnitTestingAndDocumentation
     {
         static public decimal Balance = 100;
 
+        /// <summary>
+        /// This is the main insertion of the app
+        /// It runs the UserInterface Methos
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             UserInterface();
         }
 
+        /// <summary>
+        /// This is the main hub of the application
+        /// This is will direct the rest of the application
+        /// It also holds all the WriteLines and ReadLines for the application
+        /// It a while loop until the user decides to logout.
+        /// </summary>
         public static void UserInterface()
         {
             bool atmOn = true;
@@ -69,11 +80,24 @@ namespace Lab02UnitTestingAndDocumentation
 
         }
 
+        /// <summary>
+        /// This method allows the user to check their balance. It just returns the global 
+        /// Balance variable back to the caller.
+        /// </summary>
+        /// <returns>A decimal type</returns>
         public static decimal ViewBalance()
         {
             return Balance;
         }
 
+        /// <summary>
+        /// This allows for a user defined amount to be withdrawn from the account
+        /// This method will not accept a negative
+        /// Nor will it allow the user to overdraft
+        /// </summary>
+        /// <param name="withdrawAmount">The User inputed amount</param>
+        /// <param name="inputBalance">The Balance global variable</param>
+        /// <returns>A decimal which the UserInterface method to update the Balance variable</returns>
         public static decimal Withdraw(decimal withdrawAmount, decimal inputBalance)
         {
             if (withdrawAmount < 0)
@@ -96,6 +120,13 @@ namespace Lab02UnitTestingAndDocumentation
             }
         }
 
+        /// <summary>
+        /// This allows for a user defined amount to be depoited into the account
+        /// This method will not accept a negative       
+        /// </summary>
+        /// <param name="depositAmount">The user inputed amount</param>
+        /// <param name="inputBalance">The Balance global variable</param>
+        /// <returns>A decimal which the UserInterface method to update the Balance variable</returns>
         public static decimal Deposit(decimal depositAmount, decimal inputBalance)
         {
             if (depositAmount < 0)
