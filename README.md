@@ -46,3 +46,4 @@ Then select and open ```Lab02UnitTestingAndDocumentation.sln```
 - 1.3: ViewBalance Method Complete
 - 1.4: Withdraw Method Complete
 - 1.5: Deposit Method Complete
+- 1.6: Refactor and Comments
