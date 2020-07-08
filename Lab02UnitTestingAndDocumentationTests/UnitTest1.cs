@@ -7,9 +7,14 @@ namespace Lab02UnitTestingAndDocumentationTests
     public class UnitTest1
     {
         [Fact]
-        public void TestingTest()
+        public void TestTheBalanceMethod()
         {
-            int i = 0;
+            // Arrange
+            decimal balanceFromPrgram = Balance;
+            // Act
+            decimal testBalance = ViewBalance();
+            // Assert
+            Assert.Equal(balanceFromPrgram, testBalance);
         }
     }
 }
