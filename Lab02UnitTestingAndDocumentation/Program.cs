@@ -40,14 +40,14 @@ namespace Lab02UnitTestingAndDocumentation
                             Console.WriteLine("Please enter how much you want to withdraw.");
                             decimal withdrawAmount = Convert.ToDecimal(Console.ReadLine());
                             Balance = Withdraw(withdrawAmount, Balance);
-                            Console.WriteLine($"Your balance now is: ${String.Format("{0:0.00}", ViewBalance())}");
+                            Console.WriteLine($"Your balance is: ${String.Format("{0:0.00}", ViewBalance())}");
                             Console.WriteLine();
                             break;
                         case "3":
                             Console.WriteLine("Please enter how much you want to deposit.");
                             decimal depositAmount = Convert.ToDecimal(Console.ReadLine());
-                            //Balance = Deposit(depositAmount, Balance);
-                            Console.WriteLine($"Your balance now is: ${String.Format("{0:0.00}", ViewBalance())}");
+                            Balance = Deposit(depositAmount, Balance);
+                            Console.WriteLine($"Your balance is: ${String.Format("{0:0.00}", ViewBalance())}");
                             Console.WriteLine();
                             break;
                         case "4":
@@ -76,7 +76,7 @@ namespace Lab02UnitTestingAndDocumentation
 
         public static decimal Withdraw(decimal withdrawAmount, decimal inputBalance)
         {
-            if(withdrawAmount < 0)
+            if (withdrawAmount < 0)
             {
                 Console.WriteLine("I am sorry you can not withdraw a negative amount");
                 return inputBalance;
@@ -84,16 +84,31 @@ namespace Lab02UnitTestingAndDocumentation
             else
             {
                 decimal newBalance = inputBalance - withdrawAmount;
-                if(newBalance < 0)
+                if (newBalance < 0)
                 {
                     Console.WriteLine("I am sorry you can not perform an overdraft.");
                     return inputBalance;
                 }
                 else
                 {
-                    return newBalance;                    
-                }    
-            }    
+                    return newBalance;
+                }
+            }
+        }
+
+        public static decimal Deposit(decimal depositAmount, decimal inputBalance)
+        {
+            if (depositAmount < 0)
+            {
+                Console.WriteLine("I am sorry you can not deposit a negative amount");
+                return inputBalance;
+            }
+            else
+            {
+                decimal newBalance = inputBalance + depositAmount;
+
+                return newBalance;
+            }
         }
     }
 }
